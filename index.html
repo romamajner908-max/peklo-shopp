@@ -390,8 +390,14 @@
     var cartCount = 0;
     var cartTotal = 0;
 
+    // ИСПРАВЛЕНИЕ: Подтягиваем товары из сгенерированного JSON на гитхабе вместо локального урла
     function loadProducts() {
-        fetch('/get_products?' + Date.now())
+        var repoOwner = "romamajner908-max";
+        var repoName = "peklo-shopp";
+        var filePath = "products.json";
+        var rawUrl = 'https://raw.githubusercontent.com/' + repoOwner + '/' + repoName + '/main/' + filePath;
+
+        fetch(rawUrl + '?' + Date.now()) // Добавили временную метку против жесткого кэширования
             .then(function(r) { return r.json(); })
             .then(function(data) {
                 products = data;
