@@ -50,35 +50,35 @@
             overflow: hidden;
             border: 1px solid #2a2a2a;
             transition: transform 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .product-card:active {
             transform: scale(0.97);
         }
-        .product-image {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-            background: #1a1a1a;
-        }
         .product-info {
-            padding: 10px 12px 12px 12px;
+            padding: 14px 12px;
         }
         .product-name {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             color: #fff;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         .product-desc {
-            font-size: 11px;
+            font-size: 12px;
             color: #888;
-            margin-bottom: 6px;
-            white-space: nowrap;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            height: 32px; /* Фиксированная высота, чтобы карточки были ровными */
         }
         .product-price {
             font-size: 16px;
@@ -86,7 +86,7 @@
             color: #e8491d;
         }
         .product-actions {
-            margin-top: 8px;
+            margin-top: 10px;
         }
         .btn {
             display: block;
@@ -302,9 +302,6 @@
             text-decoration: none;
         }
         @media (max-width: 400px) {
-            .product-image {
-                height: 110px;
-            }
             .product-name {
                 font-size: 13px;
             }
@@ -390,14 +387,13 @@
     var cartCount = 0;
     var cartTotal = 0;
 
-    // ИСПРАВЛЕНИЕ: Подтягиваем товары из сгенерированного JSON на гитхабе вместо локального урла
     function loadProducts() {
         var repoOwner = "romamajner908-max";
         var repoName = "peklo-shopp";
         var filePath = "products.json";
         var rawUrl = 'https://raw.githubusercontent.com/' + repoOwner + '/' + repoName + '/main/' + filePath;
 
-        fetch(rawUrl + '?' + Date.now()) // Добавили временную метку против жесткого кэширования
+        fetch(rawUrl + '?' + Date.now())
             .then(function(r) { return r.json(); })
             .then(function(data) {
                 products = data;
@@ -409,6 +405,7 @@
             });
     }
 
+    // ИСПРАВЛЕНИЕ: Из верстки карточки полностью удален тег картинок
     function renderProducts() {
         var container = document.getElementById('productsContainer');
         if (!products || products.length === 0) {
@@ -421,7 +418,6 @@
             var card = document.createElement('div');
             card.className = 'product-card';
             card.innerHTML =
-                '<img class="product-image" src="' + (p.image_url || 'https://via.placeholder.com/300x140/1a1a1a/444?text=PEKLO') + '" alt="' + p.name + '">' +
                 '<div class="product-info">' +
                 '<div class="product-name">' + p.name + '</div>' +
                 '<div class="product-desc">' + (p.description || '') + '</div>' +
