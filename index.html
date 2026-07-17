@@ -6,7 +6,12 @@
     <title>PEKLO SHOP</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #121212;
@@ -14,6 +19,7 @@
             min-height: 100vh;
             padding-bottom: 60px;
         }
+        
         .header {
             background: #1a1a1a;
             padding: 16px;
@@ -23,22 +29,26 @@
             top: 0;
             z-index: 10;
         }
+        
         .header h1 {
             font-size: 24px;
             font-weight: 700;
             color: #e8491d;
             letter-spacing: 2px;
         }
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 16px;
         }
+        
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
         }
+        
         .product-card {
             background: #1e1e1e;
             border-radius: 8px;
@@ -46,25 +56,30 @@
             border: 1px solid #333;
             transition: transform 0.2s;
         }
+        
         .product-card:hover {
             transform: translateY(-2px);
             border-color: #e8491d;
         }
+        
         .product-image {
             width: 100%;
             height: 160px;
             object-fit: cover;
             background: #2a2a2a;
         }
+        
         .product-info {
             padding: 12px;
         }
+        
         .product-name {
             font-size: 14px;
             font-weight: 600;
             color: #fff;
             margin-bottom: 4px;
         }
+        
         .product-desc {
             font-size: 12px;
             color: #888;
@@ -74,11 +89,13 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+        
         .product-price {
             font-size: 16px;
             font-weight: 700;
             color: #e8491d;
         }
+        
         .product-actions {
             display: flex;
             justify-content: space-between;
@@ -86,6 +103,7 @@
             margin-top: 10px;
             gap: 8px;
         }
+        
         .btn {
             padding: 8px 16px;
             border: none;
@@ -96,41 +114,51 @@
             transition: background 0.2s;
             flex: 1;
         }
+        
         .btn-primary {
             background: #e8491d;
             color: #fff;
         }
+        
         .btn-primary:hover {
             background: #c73d17;
         }
+        
         .btn-secondary {
             background: #333;
             color: #e0e0e0;
         }
+        
         .btn-secondary:hover {
             background: #444;
         }
+        
         .btn-danger {
             background: #dc3545;
             color: #fff;
         }
+        
         .btn-danger:hover {
             background: #b02a37;
         }
+        
         .btn-sm {
             padding: 6px 12px;
             font-size: 12px;
         }
+        
         .empty-catalog {
             text-align: center;
             padding: 60px 20px;
             color: #888;
         }
+        
         .empty-catalog h2 {
             font-size: 20px;
             color: #e8491d;
             margin-bottom: 12px;
         }
+        
         .cart-panel {
             position: fixed;
             bottom: 0;
@@ -144,23 +172,28 @@
             justify-content: space-between;
             align-items: center;
         }
+        
         .cart-info {
             display: flex;
             flex-direction: column;
         }
+        
         .cart-count {
             font-size: 12px;
             color: #888;
         }
+        
         .cart-total {
             font-size: 18px;
             font-weight: 700;
             color: #e8491d;
         }
+        
         .cart-actions {
             display: flex;
             gap: 8px;
         }
+        
         .modal-overlay {
             display: none;
             position: fixed;
@@ -174,9 +207,11 @@
             align-items: center;
             padding: 20px;
         }
+        
         .modal-overlay.active {
             display: flex;
         }
+        
         .modal {
             background: #1e1e1e;
             border-radius: 12px;
@@ -187,6 +222,7 @@
             padding: 24px;
             border: 1px solid #333;
         }
+        
         .modal-close {
             float: right;
             background: none;
@@ -195,24 +231,30 @@
             font-size: 24px;
             cursor: pointer;
         }
+        
         .modal-close:hover {
             color: #fff;
         }
+        
         .modal h2 {
             font-size: 20px;
             color: #e8491d;
             margin-bottom: 16px;
         }
+        
         .form-group {
             margin-bottom: 16px;
         }
+        
         .form-group label {
             display: block;
             font-size: 13px;
             color: #aaa;
             margin-bottom: 4px;
         }
-        .form-group input, .form-group textarea {
+        
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 10px;
             background: #2a2a2a;
@@ -221,32 +263,40 @@
             color: #fff;
             font-size: 14px;
         }
-        .form-group input:focus, .form-group textarea:focus {
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
             border-color: #e8491d;
             outline: none;
         }
+        
         .form-group textarea {
             resize: vertical;
             min-height: 60px;
         }
+        
         .cart-items-list {
             max-height: 200px;
             overflow-y: auto;
             margin-bottom: 16px;
         }
+        
         .cart-item {
             display: flex;
             justify-content: space-between;
             padding: 8px 0;
             border-bottom: 1px solid #2a2a2a;
         }
+        
         .cart-item-name {
             font-size: 13px;
         }
+        
         .cart-item-price {
             font-size: 13px;
             color: #e8491d;
         }
+        
         .footer {
             text-align: center;
             padding: 16px;
@@ -255,6 +305,7 @@
             border-top: 1px solid #2a2a2a;
             margin-top: 20px;
         }
+        
         @media (max-width: 480px) {
             .products-grid {
                 grid-template-columns: 1fr 1fr;
@@ -280,9 +331,11 @@
     <div class="header">
         <h1>PEKLO SHOP</h1>
     </div>
+    
     <div class="container" id="app">
         <div id="productsContainer" class="products-grid"></div>
     </div>
+    
     <div class="cart-panel" id="cartPanel">
         <div class="cart-info">
             <div class="cart-count" id="cartCount">0 товаров</div>
@@ -290,9 +343,10 @@
         </div>
         <div class="cart-actions">
             <button class="btn btn-secondary btn-sm" onclick="openCart()">Корзина</button>
-            <button class="btn btn-primary btn-sm" onclick="checkout()">Оформить</button>
+            <button class="btn btn-primary btn-sm" onclick="openCheckout()">Оформить</button>
         </div>
     </div>
+    
     <div class="modal-overlay" id="cartModal">
         <div class="modal">
             <button class="modal-close" onclick="closeCart()">&times;</button>
@@ -301,13 +355,21 @@
             <div style="text-align: right; font-size: 18px; font-weight: 700; color: #e8491d; margin-bottom: 16px;">
                 Итого: <span id="cartModalTotal">0</span> руб
             </div>
-            <button class="btn btn-primary" style="width: 100%;" onclick="closeCart(); checkout();">Оформить заказ</button>
+            <button class="btn btn-primary" style="width: 100%;" onclick="closeCart(); openCheckout();">Оформить заказ</button>
         </div>
     </div>
+    
     <div class="modal-overlay" id="checkoutModal">
         <div class="modal">
             <button class="modal-close" onclick="closeCheckout()">&times;</button>
             <h2>Оформление заказа</h2>
+            <div style="margin-bottom: 16px; padding: 12px; background: #2a2a2a; border-radius: 8px;">
+                <div style="font-size: 14px; color: #888;">Товары в заказе:</div>
+                <div id="checkoutItemsList" style="font-size: 13px; color: #e0e0e0; margin-top: 8px;"></div>
+                <div style="font-size: 16px; font-weight: 700; color: #e8491d; margin-top: 8px;">
+                    Итого: <span id="checkoutTotal">0</span> руб
+                </div>
+            </div>
             <form id="checkoutForm" onsubmit="submitOrder(event)">
                 <div class="form-group">
                     <label>Ваше имя</label>
@@ -329,9 +391,11 @@
             </form>
         </div>
     </div>
+    
     <div class="footer">
         made by tr1ppy
     </div>
+    
     <script>
         const tg = window.Telegram.WebApp;
         tg.expand();
@@ -343,7 +407,6 @@
         let cartTotal = 0;
         
         function loadProducts() {
-            // Загружаем товары из products.json на Vercel
             fetch("products.json?" + new Date().getTime())
                 .then(response => response.json())
                 .then(data => {
@@ -351,7 +414,6 @@
                     renderProducts();
                 })
                 .catch(() => {
-                    // Если файла нет — показываем пустой каталог
                     products = [];
                     renderEmptyCatalog();
                 });
@@ -468,11 +530,18 @@
             document.getElementById('cartModalTotal').textContent = cartTotal;
         }
         
-        function checkout() {
+        function openCheckout() {
             if (cart.length === 0) {
                 tg.showAlert('Ваша корзина пуста');
                 return;
             }
+            
+            // Показываем товары в форме
+            const itemsList = document.getElementById('checkoutItemsList');
+            itemsList.innerHTML = cart.map(item => 
+                `<div style="padding: 4px 0;">${item.name} x${item.quantity} = ${item.price * item.quantity} руб</div>`
+            ).join('');
+            document.getElementById('checkoutTotal').textContent = cartTotal;
             
             document.getElementById('checkoutModal').classList.add('active');
         }
@@ -504,8 +573,10 @@
                 total_price: cartTotal
             };
             
+            // Отправляем через sendData
             tg.sendData(JSON.stringify(orderData));
             
+            // Очищаем корзину
             cart = [];
             cartCount = 0;
             cartTotal = 0;
@@ -519,4 +590,4 @@
         loadProducts();
     </script>
 </body>
-        </html>
+</html>
