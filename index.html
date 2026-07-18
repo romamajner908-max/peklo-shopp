@@ -34,6 +34,41 @@
             color: #e8491d;
             letter-spacing: 1px;
         }
+        /* СТИЛИ ДЛЯ ТАБОВ КАТЕГОРИЙ */
+        .categories-tabs {
+            display: flex;
+            background: #111;
+            padding: 8px 4px;
+            gap: 6px;
+            overflow-x: auto;
+            border-bottom: 1px solid #1a1a1a;
+            position: sticky;
+            top: 62px;
+            z-index: 9;
+        }
+        .categories-tabs::-webkit-scrollbar {
+            display: none;
+        }
+        .tab-btn {
+            flex: 1;
+            min-width: 80px;
+            padding: 8px 10px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            background: #161616;
+            color: #aaa;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .tab-btn.active {
+            background: #e8491d;
+            color: #fff;
+            border-color: #e8491d;
+        }
         .container {
             max-width: 480px;
             margin: 0 auto;
@@ -78,7 +113,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 32px; /* Фиксированная высота, чтобы карточки были ровными */
+            height: 32px;
         }
         .product-price {
             font-size: 16px;
@@ -122,6 +157,7 @@
             background: #b02a37;
         }
         .empty-catalog {
+            grid-column: 1 / -1;
             text-align: center;
             padding: 60px 20px;
             color: #666;
@@ -317,6 +353,14 @@
     <h1>PEKLO SHOP</h1>
 </div>
 
+<!-- БЛОК ПЕРЕКЛЮЧЕНИЯ КАТЕГОРИЙ -->
+<div class="categories-tabs">
+    <button class="tab-btn active" onclick="switchCategory('снюс')">Снюс</button>
+    <button class="tab-btn" onclick="switchCategory('жижа')">Жижа</button>
+    <button class="tab-btn" onclick="switchCategory('подики')">Подики</button>
+    <button class="tab-btn" onclick="switchCategory('одноразки')">Одноразки</button>
+</div>
+
 <div class="container" id="app">
     <div id="productsContainer" class="products-grid"></div>
 </div>
@@ -386,6 +430,7 @@
     var cart = [];
     var cartCount = 0;
     var cartTotal = 0;
+    var currentCategory = 'снюс'; // Категория по умолчанию
 
     function loadProducts() {
         var repoOwner = "romamajner908-max";
@@ -405,16 +450,44 @@
             });
     }
 
-    // ИСПРАВЛЕНИЕ: Из верстки карточки полностью удален тег картинок
+    // ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК
+    function switchCategory(category) {
+        currentCategory = category;
+        
+        // Меняем визуальный класс активности у кнопок табов
+        var buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(function(btn) {
+            if (btn.textContent.toLowerCase() === category) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        renderProducts();
+    }
+
     function renderProducts() {
         var container = document.getElementById('productsContainer');
         if (!products || products.length === 0) {
             renderEmptyCatalog();
             return;
         }
+        
+        // Фильтруем товары по выбранной вкладке
+        var filteredProducts = products.filter(function(p) {
+            var cat = p.category || 'снюс'; // На случай, если у старых товаров нет поля category
+            return cat.toLowerCase() === currentCategory.toLowerCase();
+        });
+
+        if (filteredProducts.length === 0) {
+            container.innerHTML = '<div class="empty-catalog"><h2>Категория пуста</h2><p>Товары в этой категории временно отсутствуют</p></div>';
+            return;
+        }
+
         container.innerHTML = '';
-        for (var i = 0; i < products.length; i++) {
-            var p = products[i];
+        for (var i = 0; i < filteredProducts.length; i++) {
+            var p = filteredProducts[i];
             var card = document.createElement('div');
             card.className = 'product-card';
             card.innerHTML =
