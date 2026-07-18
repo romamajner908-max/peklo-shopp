@@ -33,5 +33,12 @@
     "price": 82616,
     "description": "Лвлы",
     "category": "жижа"
+  },
+  {
+    "id": 9,
+    "name": "Тест",
+    "price": 1717,
+    "description": "Тест",
+    "category": "подики"
   }
 ]
