@@ -1,1 +1,37 @@
-[{"id": 4, "name": "тест снюс", "price": 1916, "description": "тест снюс", "category": "снюс"}, {"id": 5, "name": "тест жижа 1515", "price": 1515, "description": "темт жижа", "category": "жижа"}, {"id": 6, "name": "подик", "price": 2000, "description": "подик", "category": "подики"}, {"id": 7, "name": "одно", "price": 1000, "description": "одно", "category": "одноразки"}]
+[
+  {
+    "id": 4,
+    "name": "тест снюс",
+    "price": 1916,
+    "description": "тест снюс",
+    "category": "снюс"
+  },
+  {
+    "id": 5,
+    "name": "тест жижа 1515",
+    "price": 1515,
+    "description": "темт жижа",
+    "category": "жижа"
+  },
+  {
+    "id": 6,
+    "name": "подик",
+    "price": 2000,
+    "description": "подик",
+    "category": "подики"
+  },
+  {
+    "id": 7,
+    "name": "одно",
+    "price": 1000,
+    "description": "одно",
+    "category": "одноразки"
+  },
+  {
+    "id": 8,
+    "name": "Лы",
+    "price": 82616,
+    "description": "Лвлы",
+    "category": "жижа"
+  }
+]
