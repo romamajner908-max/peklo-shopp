@@ -7,17 +7,17 @@
     "category": "снюс"
   },
   {
-    "id": 5,
-    "name": "тест жижа 1515",
-    "price": 1515,
-    "description": "темт жижа",
-    "category": "жижа"
-  },
-  {
     "id": 8,
     "name": "Лы",
     "price": 82616,
     "description": "Лвлы",
+    "category": "жижа"
+  },
+  {
+    "id": 10,
+    "name": "9",
+    "price": 6,
+    "description": "5",
     "category": "жижа"
   }
 ]
