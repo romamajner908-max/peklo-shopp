@@ -12,5 +12,12 @@
     "price": 450,
     "description": "- Химка\n- 299мг\n- 20 паков",
     "category": "снюс"
+  },
+  {
+    "id": 13,
+    "name": "ГРЕХ Самоубийство 299мг",
+    "price": 450,
+    "description": "",
+    "category": "снюс"
   }
 ]
