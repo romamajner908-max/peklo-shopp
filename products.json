@@ -19,5 +19,12 @@
     "price": 450,
     "description": "",
     "category": "снюс"
+  },
+  {
+    "id": 14,
+    "name": "PASITO III",
+    "price": 3000,
+    "description": "",
+    "category": "подики"
   }
 ]
