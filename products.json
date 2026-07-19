@@ -26,5 +26,12 @@
     "price": 3000,
     "description": "",
     "category": "подики"
+  },
+  {
+    "id": 15,
+    "name": "PASITO II",
+    "price": 2400,
+    "description": "",
+    "category": "подики"
   }
 ]
