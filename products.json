@@ -33,5 +33,12 @@
     "price": 450,
     "description": "",
     "category": "снюс"
+  },
+  {
+    "id": 6,
+    "name": "ICEBURN 150мг",
+    "price": 400,
+    "description": "",
+    "category": "снюс"
   }
 ]
