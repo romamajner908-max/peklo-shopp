@@ -12,5 +12,12 @@
     "price": 2299,
     "description": "AEGIS NANO 3🔥\nЦвета: \n- Midnight Dark\n- Polar Silver\n- Purple Bloom\n- Arctic Blue",
     "category": "подики"
+  },
+  {
+    "id": 3,
+    "name": "AEGIS BOOST 3🔥",
+    "price": 2599,
+    "description": "AEGIS BOOST 3🔥\nЦвета: \n- Black\n- Teal Blue\n- Silver",
+    "category": "подики"
   }
 ]
