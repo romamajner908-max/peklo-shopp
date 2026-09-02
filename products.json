@@ -26,5 +26,12 @@
     "price": 400,
     "description": "",
     "category": "снюс"
+  },
+  {
+    "id": 5,
+    "name": "ГРЕХ 299мг",
+    "price": 450,
+    "description": "",
+    "category": "снюс"
   }
 ]
