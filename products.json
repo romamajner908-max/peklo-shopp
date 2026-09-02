@@ -201,5 +201,12 @@
     "price": 2200,
     "description": "Цвета: \n- Glittering Gold\n- Glittering Silver\n- Glittering Black\n- Storm Blue\n- Moonlit Pink\n- Dawn Purple",
     "category": "подики"
+  },
+  {
+    "id": 32,
+    "name": "🔥SMOANT PASITO III🔥",
+    "price": 3000,
+    "description": "Цвета: \n- Blue Azur\n- Blue Nuit\n- Camouflage Green\n- Matte Black\n- Space Grey\n- Rococo Purple\n- Classical Red\n- Pepper White",
+    "category": "подики"
   }
 ]
